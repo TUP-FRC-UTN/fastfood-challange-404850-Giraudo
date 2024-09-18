@@ -1,12 +1,12 @@
 
-<form class="form-control container">
+<form #form="ngForm" (ngSubmit)="takeOrder(form)" class="form-control container">
     <div class="row">
         <label for="name">Nombre: </label>
-        <input type="text" name="name" id="name">
+        <input type="text" name="name" [(ngModel)]="orderCreated.name" id="name">
     </div>
     <div class="row">
-        <label for="order">Pedido: </label>
-        <input type="text" name="order" id="order">
+        <label for="description">Pedido: </label>
+        <input type="text" name="description" [(ngModel)]="orderCreated.description" id="description">
     </div>
-    <button type="submit">Generar Orden</button>
+    <button class="mt-2" type="submit">Generar Orden</button>
 </form>

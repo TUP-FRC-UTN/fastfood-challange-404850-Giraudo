@@ -5,9 +5,22 @@
     <h4>Pendiente de cocinar:</h4>
 
     <!-- Mostrar lista de pedidos pendientes -->
+    @for(order of ordersToCook; track order.number) {
+        <div class="row border">
+            <div class="col">{{order.name}} - {{order.description}}</div>
+            <button class="col" type="button" (click)="cookOrder(order.number)" >Cocinar Orden</button>
+        </div>
+    }
     
     
     <h4>Pedido cocinandose:</h4>
-
+    <div class="row border">
+        @if(orderCooking.number < 1) {
+            <div class="col">Cocina vacía</div>
+        } else if {
+            <div class="col">{{orderCooking.name}} - {{orderCooking.description}}</div>
+            <button class="col" type="button" (click)="deliverOrder(orderCooking)" >Cocinar Orden</button>
+        }
+    </div>
     <!-- Solo se cocina un pedido por vez -->
 </div>
